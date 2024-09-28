@@ -1,7 +1,9 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
 
 #include "file_util.h"
+#include "bat_processor.h"
 
 int main(int argc, char *argv[]) {
     printf("BatToExe\n");
@@ -18,18 +20,25 @@ int main(int argc, char *argv[]) {
     char *exeFile = argv[2];
 
     // Leer el fichero .bat
-    char *fileContent = readFile(batFile);
-    if (fileContent == NULL) {
+    char *batContent = readFile(batFile);
+    if (batContent == NULL) {
         perror("Error reading file");
         return 1;
     }
-    
-    /* Escribir el contenido del .bat en el .exe 
+
+    // Generar codigo C a partir del .bat
+    char *generatedCode = batToC(batContent);
+    free(batContent); 
+    if (generatedCode == NULL) {
+        perror("Error converting file");
+        return 1;
+    }
+
+    /* Escribir el codigo c en el .exe 
     (Esto es temporal, se debe convertir las instrucciones del
     script a un ejecutable) */ 
-    writeFile(exeFile, fileContent);
-
-    // Liberar la memoria
-    free(fileContent);
+    writeFile(exeFile, generatedCode);
+    free(generatedCode);
+    
     return 0;
 }
