@@ -15,7 +15,7 @@ char *readFile(const char *fileName) {
     char buffer[BUFFER_SIZE];
     size_t totalLength = 0;
 
-    while (fgets(buffer, sizeof(buffer), file) != NULL) {
+    while (fgets(buffer, BUFFER_SIZE, file) != NULL) {
         size_t bufferLength = strlen(buffer);
         char *newContent = realloc(content, totalLength + bufferLength + 1); // +1 for null terminator
         if (newContent == NULL) {
