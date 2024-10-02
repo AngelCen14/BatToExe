@@ -1,6 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "file_util.h"
 
@@ -43,5 +43,6 @@ int writeFile(const char *fileName, const char *content) {
     
     int result = fprintf(file, "%s", content);
     fclose(file);
-    return result;
+    
+    return (result == -1) ? EXIT_FAILURE : EXIT_SUCCESS;
 }
