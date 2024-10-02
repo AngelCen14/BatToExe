@@ -7,13 +7,11 @@ file(GLOB SOURCES
         ${PROJECT_SOURCE_DIR}/include/*.h
         ${PROJECT_SOURCE_DIR}/src/*.c)
 
-add_executable(${PROJECT_NAME} ${SOURCES})
 
-# Ejecuta el programa despues de hacer la build
-add_custom_command(TARGET ${PROJECT_NAME} 
-        POST_BUILD
-        COMMAND ${CMAKE_BINARY_DIR}/${PROJECT_NAME} 
-                ${PROJECT_SOURCE_DIR}/test_files/script.bat
-                ${PROJECT_SOURCE_DIR}/test_files/script.exe
-        WORKING_DIRECTORY ${CMAKE_BINARY_DIR}
-)
+# Configuracion de las salidas
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_BINARY_DIR}/debug)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_BINARY_DIR}/release)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${CMAKE_BINARY_DIR}/relwithdebinfo)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY_MINSIZEREL ${CMAKE_BINARY_DIR}/minsizerel)
+
+add_executable(${PROJECT_NAME} ${SOURCES})
