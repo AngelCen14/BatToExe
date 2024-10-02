@@ -1,6 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 #include "bat_processor.h"
 
@@ -46,7 +46,7 @@ char *fixBat(const char* batContent) {
 }
 
 char *batToC(const char* batContent) {
-    char baseCode[] = "#include <stdlib.h>\n\nint main() {\n    system(\"%s\");\n    return 0;\n}";
+    char baseCode[] = "#include <stdlib.h>\n\nint main() {\n    system(\"cmd /c %s\");\n    return 0;\n}";
     
     // Obtener el bat arreglado para la funcion system()
     char *fixedBat = fixBat(batContent);
