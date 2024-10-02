@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5.0)
-project(BatToExe VERSION 0.1.0 LANGUAGES C)
+project(BatToExe VERSION 1.0.0 LANGUAGES C)
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
 
