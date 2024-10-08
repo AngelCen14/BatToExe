@@ -1,7 +1,7 @@
 # BatToExe
 [English](#english) / [Spanish](#spanish)
 
-## English [](#english)
+## English
 Program to convert a windows .bat script in a .exe file.
 
 ### How to use
@@ -14,7 +14,7 @@ Program to convert a windows .bat script in a .exe file.
     ```
 
 
-## Spanish [](#spanish)
+## Spanish
 Programa para convertir un script .bat de windows en un archivo .exe.
 
 ### Como usarlo
